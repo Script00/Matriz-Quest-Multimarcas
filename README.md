@@ -1,62 +1,59 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Sobre
 
-## About Laravel
+Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do site QuestMultimarcas. Optei por utilizar a biblioteca Domdocument do laravel para propor um código mais limpo e legivel ao invés do REGEX(NA MINHA OPNIÃO):
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Stacks
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Ubuntu 20.04
+- PHP 7.4.3
+- Laravel Framework 7.30.6
+- MYSQL 8.0.34
+- Apache2.service - The Apache HTTP Server
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Mão na masssa!
 
-## Learning Laravel
+## Instalação e config do php7.4 e apache2
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- RODE NO TERMINAL(ATALHO -> CTR+ALT+T) O SEGUINTE COMANDO PARA INSTALAR O APACHE(NESSE CASO IREI UTILIZAR O APT):
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+	R: 1° RODE(ATUALIZE) = sudo apt update && sudo apt upgrade, 2° RODE = sudo apt install apache2 , 3° RODE = systemctl start apache2, 4° RODE = systemctl enable apache2, 5° RODE(CTRL + C PARA SAIR DO STATUS DO APACHE) = systemctl status apache2, 6° RODE(Em seguida, adicione os serviços SSH, HTTP e HTTPS ao firewall UFW usando o comando a seguir) =  for svc in ssh http https
+                                                                                                                                                                    do 
+                                                                                                                                                                    ufw allow $svc
+                                                                                                                                                                    done, 
+    7° RODE = sudo ufw enable, 8° RODE(NA URL DO NAVEGADOR) = http://10.5.5.25/ OU localhost;
 
-## Laravel Sponsors
+- BORA PRO PHP(VAMOS UTILIZAR O APTITUDE):
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+	R: 1° RODE = sudo aptitude install php, 2° RODE(Repositório que fornece versões anteriores do PHP) = sudo add-apt-repository ppa:ondrej/php, 3° RODE = sudo aptitude install php7.4 (versão específica), 4° RODE(PRA GARANTIR QUE TODOS OS MÓDULOS PHP ESTARÃO INSTALADOS CORRETAMENTE) = sudo aptitude install php7.4 libapache2-mod-php7.4 php7.4-mysql php7.4-common php7.4-curl php7.4-json php7.4-xml php7.4-mbstring php7.4-gettext php7.4-gd php7.4-zip php7.4-soap php7.4-xmlrpc php7.4-intl php7.4-cli php7.4-dev php-pear libapache2-mod-php7.4 php7.4-bz2;
 
-### Premium Partners
+## Instalação e config do mysql
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+- RODE NO TERMINAL(ATALHO -> CTR+ALT+T) O SEGUINTE COMANDO PARA INSTALAR O MYSQL(NESSE CASO IREI UTILIZAR O APTITUDE):
 
-## Contributing
+	R: 1° RODE = sudo apt-get install aptitude, 2° = sudo aptitude install mysql-server mysql-client;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PRA LOGAR NO mysql EXECUTE ESTE COMANDO. (POR PADRÃO O MYSQL JÁ VEM CONFIGURADO SEM SENHA):
 
-## Code of Conduct
+	R: 1° RODE = sudo su, 2° RODE = mysql -u root, 3° RODE O ALTER SE QUISER UMA SENHA PRO USER ROOT DO MYSQL = ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- SE PREFERIR CRIE UM USER NOVO:
+    
+    R: 1° RODE = CREATE USER 'admin@admin.com'@'localhost' IDENTIFIED BY 'admin', 2° RODE PARA DEFINIR OS PRIVILÉGIOS DESSE CARA = GRANT ALL PRIVILEGES ON *.* TO 'admin@admin.com'@'localhost', 3° RODE PARA APLICAR AS ALTERAÇÕES = FLUSH PRIVILEGES;
 
-## Security Vulnerabilities
+- AGORA VAMOS CRIAR NOSSO DATABASE:
+    
+    R: 1° RODE(VAMOS LOGAR NO USER CRIADO) = mysql -u admin@admin.com -p, 2° RODE = CREATE DATABASE questmultimarcas, 3° RODE = exit;
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- AGORA APÓS REALIZAR O CLONE DO PROJETO, VOCÊ PODE RENOMEAR O ARQUIVO .ENV.EXAMPLE PARA .ENV:(VOCÊ PODE ABRIR NA SUA IDE DE PREFERÊNCIA OU VIA TERMINAL QUE É O QUE VOU MOSTRAR AQUI)
 
-## License
+    R: 1° RODE(VÁ ATÉ A APLICAÇÃO APERTE O BOTÃO ESQUERDO DO MOUSE E CLIQUE NA OPÇÃO ABRIR NO TERMINAL OU ABRA UM TERMINAL E NAVEGUE ATÉ A APLICAÇÃO) = ATUALIZE AS INFOS DE CONEXÇÃO COM O BANCO NESSE EXEMPLO IREI DEIXAR COMO ESTA A CONFIG FEITA Á CIMA.
+        ## DB_CONNECTION=mysql
+        ## DB_HOST=127.0.0.1
+        ## DB_PORT=3306
+        ## DB_DATABASE=questmultimarcas
+        ## DB_USERNAME=admin@admin.com
+        ## DB_PASSWORD=admin;
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-#Matriz-Quest-Multimarcas
+## Vamos rodar nossa aplicação
