@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://laravel.com" target="_blank">
-        <img src="https://static.autoconf.com.br/site-quest-multimarcas/images/logo.png?1e735f3a33e0d80d877bf225314fb369" width="400">
+        <img src="https://static.autoconf.com.br/site-quest-multimarcas/images/logo.png?1e735f3a33e0d80d877bf225314fb369" width="300">
     </a>
 </p>
 
