@@ -66,9 +66,7 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
 	R: 1° RODE = composer install - NO MEU CASO ELE RECLAMOU DA DEPEDÊNCIA DO CURL QUE ESTÁ FALTANDO, CASO ACONTEÇA O MESMO COM VOCÊ, RODE = sudo apt-get install php7.4-cuRL.
     PERCEBA Q NA IMAGEM A BAIXO APÓS FAZER A INSTALÇAO DO NÓDULO DO CURL NO PHP O CAMANDO COMPOSER INSTALL RODA E CONSEGUE INSTALAR AS DEPÊNDENCIAS DO PROJETO;
     <p align="center">
-        <a href="https://laravel.com" target="_blank">
-            <img src="https://drive.google.com/file/d/1rfCTJYo5hyNxrDq3Q2yIKa8GU7QLGeAl/view?usp=sharing" width="300">
-        </a>
+        <img src="https://drive.google.com/file/d/1rfCTJYo5hyNxrDq3Q2yIKa8GU7QLGeAl/view?usp=sharing" width="300">
     </p>
     
 - AGORA VAMOS RODAS AS MIGRATE E APROVEITAR A PLATAFORMA:
