@@ -13,24 +13,19 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
 - Ubuntu 20.04
 - PHP 7.4.3
 - Laravel Framework 7.30.6
+- Node 18.0.0
+- Npm 8.6.0
+- Composer 2.5.8
 - MYSQL 8.0.34
 - Apache2.service - The Apache HTTP Server
 
 ## Mão na masssa!
 
-## Instalação e config do php7.4 e apache2
+## Instalação e config do php7.4, apache2 e composer
 
-- RODE NO TERMINAL(ATALHO -> CTR+ALT+T) O SEGUINTE COMANDO PARA INSTALAR O APACHE(NESSE CASO IREI UTILIZAR O APT):
+- O PHP E O APACHE TEM DIVERSAS FORMAS DE INSTALAR NO AMBIENTE, GOSTO DE USAR O TUTORIAL DO HOWTOFORGE E RECOMENDO. PARA GANHARMOS TEMPO DEIXO A INDICAÇÃO E VAMOS CONFIGURAR E INSTALAR O MYSQL.
 
-	R: 1° RODE(ATUALIZE) = sudo apt update && sudo apt upgrade, 2° RODE = sudo apt install apache2 , 3° RODE = systemctl start apache2, 4° RODE = systemctl enable apache2, 5° RODE(CTRL + C PARA SAIR DO STATUS DO APACHE) = systemctl status apache2, 6° RODE(Em seguida, adicione os serviços SSH, HTTP e HTTPS ao firewall UFW usando o comando a seguir) =  for svc in ssh http https
-                                                                                                                                                                    do 
-                                                                                                                                                                    ufw allow $svc
-                                                                                                                                                                    done, 
-    7° RODE = sudo ufw enable, 8° RODE(NA URL DO NAVEGADOR) = http://10.5.5.25/ OU localhost;
-
-- BORA PRO PHP(VAMOS UTILIZAR O APTITUDE):
-
-	R: 1° RODE = sudo aptitude install php, 2° RODE(Repositório que fornece versões anteriores do PHP) = sudo add-apt-repository ppa:ondrej/php, 3° RODE = sudo aptitude install php7.4 (versão específica), 4° RODE(PRA GARANTIR QUE TODOS OS MÓDULOS PHP ESTARÃO INSTALADOS CORRETAMENTE) = sudo aptitude install php7.4 libapache2-mod-php7.4 php7.4-mysql php7.4-common php7.4-curl php7.4-json php7.4-xml php7.4-mbstring php7.4-gettext php7.4-gd php7.4-zip php7.4-soap php7.4-xmlrpc php7.4-intl php7.4-cli php7.4-dev php-pear libapache2-mod-php7.4 php7.4-bz2;
+  	R:  <a href="https://www.howtoforge.com/tutorial/how-to-install-laravel-php-web-framework-on-ubuntu-2004/" target="_blank">CLIQUE AQUI!</a>
 
 ## Instalação e config do mysql
 
@@ -44,15 +39,15 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
 
 - SE PREFERIR CRIE UM USER NOVO:
     
-    R: 1° RODE = CREATE USER 'admin@admin.com'@'localhost' IDENTIFIED BY 'admin', 2° RODE PARA DEFINIR OS PRIVILÉGIOS DESSE CARA = GRANT ALL PRIVILEGES ON *.* TO 'admin@admin.com'@'localhost', 3° RODE PARA APLICAR AS ALTERAÇÕES = FLUSH PRIVILEGES;
+    R: 1° RODE = CREATE USER 'admin@admin.com'@'localhost' IDENTIFIED BY 'admin';, 2° RODE PARA DEFINIR OS PRIVILÉGIOS DESSE CARA = GRANT ALL PRIVILEGES ON *.* TO 'admin@admin.com'@'localhost';, 3° RODE PARA APLICAR AS ALTERAÇÕES = FLUSH PRIVILEGES;;
 
 - AGORA VAMOS CRIAR NOSSO DATABASE:
     
-    R: 1° RODE(VAMOS LOGAR NO USER CRIADO) = mysql -u admin@admin.com -p, 2° RODE = CREATE DATABASE questmultimarcas, 3° RODE = exit;
+    R: 1° RODE(VAMOS LOGAR NO USER CRIADO) = mysql -u admin@admin.com -p, 2° RODE = CREATE DATABASE questmultimarcas;, 3° RODE = exit;
 
 - AGORA APÓS REALIZAR O CLONE DO PROJETO, VOCÊ PODE RENOMEAR O ARQUIVO .ENV.EXAMPLE PARA .ENV:(VOCÊ PODE ABRIR NA SUA IDE DE PREFERÊNCIA OU VIA TERMINAL QUE É O QUE VOU MOSTRAR AQUI)
 
-    R: 1° RODE(VÁ ATÉ A APLICAÇÃO APERTE O BOTÃO ESQUERDO DO MOUSE E CLIQUE NA OPÇÃO ABRIR NO TERMINAL OU ABRA UM TERMINAL E NAVEGUE ATÉ A APLICAÇÃO) = ATUALIZE AS INFOS DE CONEXÇÃO COM O BANCO NESSE EXEMPLO IREI DEIXAR COMO ESTA A CONFIG FEITA Á CIMA.
+    R: 1° RODE(VÁ ATÉ A APLICAÇÃO APERTE O BOTÃO ESQUERDO DO MOUSE E CLIQUE NA OPÇÃO ABRIR NO TERMINAL OU ABRA UM TERMINAL E NAVEGUE ATÉ A APLICAÇÃO) = ATUALIZE AS INFOS DE CONEXÇÃO COM O BANCO, NESSE EXEMPLO IREI DEIXAR COMO ESTA A CONFIG FEITA Á CIMA.
         ## DB_CONNECTION=mysql
         ## DB_HOST=127.0.0.1
         ## DB_PORT=3306
@@ -61,3 +56,25 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
         ## DB_PASSWORD=admin;
 
 ## Vamos rodar nossa aplicação
+
+- NODE E NPM:
+
+	R: 1° RODE = curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash, 2° RODE(ABRA OUTRO TERMINAL PARA CARREGAR BASHRC E RODE) = nvm install 18.0.0, 3° RODE = nvm use 18.0.0, 4° RODE = node -v npm -v;
+
+- A BRINCADEIRA COMEÇA A FICAR BOA!!!!:
+
+	R: 1° RODE = composer install - NO MEU CASO ELE RECLAMOU DA DEPEDÊNCIA DO CURL QUE ESTÁ FALTANDO, CASO ACONTEÇA O MESMO COM VOCÊ, RODE = sudo apt-get install php7.4-cuRL.
+    PERCEBA Q NA IMAGEM A BAIXO APÓS FAZER A INSTALÇAO DO NÓDULO DO CURL NO PHP O CAMANDO COMPOSER INSTALL RODA E CONSEGUE INSTALAR AS DEPÊNDENCIAS DO PROJETO;
+    <p align="center">
+        <a href="https://laravel.com" target="_blank">
+            <img src="https://drive.google.com/file/d/1rfCTJYo5hyNxrDq3Q2yIKa8GU7QLGeAl/view?usp=sharing" width="300">
+        </a>
+    </p>
+    
+- AGORA VAMOS RODAS AS MIGRATE E APROVEITAR A PLATAFORMA:
+
+	R: 2° RODE(NA MINHA MÁQUINA ELE RECLAMOU DO PHP-PDO-MYSQL SE ENFRENTAR O MESMO PROBLEMA DEIXAREI A BAIXO COMO RESOLVER.) = php artisan migrete --seed, 3° RODE(PARA CRIPTOGRAFAR A APLICAÇÃO) = php artisan key:generate, 4° E ÚLTIMO = php artisan serve;
+    PARA RESOLVER O PHP-PDO-MYSQL RODE = sudo apt-get install -y php-pdo-mysql;
+
+
+##OBRIGADO A TODOS!!!!!!!
