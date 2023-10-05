@@ -39,7 +39,7 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
 
 - SE PREFERIR CRIE UM USER NOVO:
     
-    R: 1° RODE = CREATE USER 'admin@admin.com'@'localhost' IDENTIFIED BY 'admin';, 2° RODE PARA DEFINIR OS PRIVILÉGIOS DESSE CARA = GRANT ALL PRIVILEGES ON *.* TO 'admin@admin.com'@'localhost';, 3° RODE PARA APLICAR AS ALTERAÇÕES = FLUSH PRIVILEGES;;
+    R: 1° RODE = CREATE USER 'admin@admin.com'@'localhost' IDENTIFIED BY 'admin';, 2° RODE PARA DEFINIR OS PRIVILÉGIOS DESSE CARA = GRANT ALL PRIVILEGES ON admin.* TO 'admin@admin.com'@'localhost';, 3° RODE PARA APLICAR AS ALTERAÇÕES = FLUSH PRIVILEGES;;
 
 - AGORA VAMOS CRIAR NOSSO DATABASE:
     
