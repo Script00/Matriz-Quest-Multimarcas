@@ -17,7 +17,7 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
 - Npm 8.6.0
 - Composer 2.5.8
 - MYSQL 8.0.34
-- Apache2.service - The Apache HTTP Server
+- Apache
 
 ## Mão na masssa!
 
