@@ -71,7 +71,7 @@ Olá, nesse desafio iremos fazer nossa aplicação obter dados de veículos do s
     
 - AGORA VAMOS RODAS AS MIGRATE E APROVEITAR A PLATAFORMA:
 
-	R: 2° RODE(NA MINHA MÁQUINA ELE RECLAMOU DO PHP-PDO-MYSQL SE ENFRENTAR O MESMO PROBLEMA DEIXAREI A BAIXO COMO RESOLVER.) = php artisan migrete --seed, 3° RODE(PARA CRIPTOGRAFAR A APLICAÇÃO) = php artisan key:generate, 4° E ÚLTIMO = php artisan serve;
+	R: 2° RODE(NA MINHA MÁQUINA ELE RECLAMOU DO PHP-PDO-MYSQL SE ENFRENTAR O MESMO PROBLEMA DEIXAREI A BAIXO COMO RESOLVER.) = php artisan migrate --seed, 3° RODE(PARA CRIPTOGRAFAR A APLICAÇÃO) = php artisan key:generate, 4° E ÚLTIMO = php artisan serve;
     PARA RESOLVER O PHP-PDO-MYSQL RODE = sudo apt-get install -y php-pdo-mysql;
 
 
